@@ -1,0 +1,72 @@
+<div class="container">
+    <h2 class="title">Logowanie do panelu administracyjnego</h2>
+    <div
+        class="error"
+        *ngIf="authService.errorMessage$ |async as Message"
+    >
+        <p>{{Message}}</p>
+    </div>
+    <div
+        class="error"
+        *ngIf="errorMessage"
+    >
+        <p>{{errorMessage}}</p>
+    </div>
+    <form
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+    >
+        <label for="email">
+            <p>Email:</p>
+        </label>
+        <input
+            id="email"
+            type="email"
+            formControlName="email"
+        >
+        <div class="info-valid">
+            <p *ngIf="email.touched && email.errors?.required">
+                <em>Wymagane pole.</em>
+            </p>
+            <p *ngIf="email.touched && email.errors?.email">
+                <em>Wprowadź prawidłowy email.</em>
+            </p>
+        </div>
+        <label for="password">
+            <p>Hasło:</p>
+        </label>
+        <input
+            type="password"
+            id="password"
+            formControlName="password"
+        >
+        <div class="info-valid">
+            <p *ngIf="password.touched && password.errors?.required">
+                <em>Wymagane pole.</em>
+            </p>
+            <p *ngIf="password.touched && password.errors?.minlength">
+                <em>
+                    Hasło ma {{password.errors.minlength?.actualLength}} znaków. Musi składać się z conajmniej: {{password.errors.minlength?.requiredLength}} znaków.
+                </em>
+            </p>
+        </div>
+        <div class="actions">
+            <button
+                class="btn btn--dark"
+                type="submit"
+                [disabled]="loginForm.invalid || disableButton"
+            >
+                Zaloguj
+            </button>
+            <div class="signUp">
+                <p>Nie masz konta - zarejestuj się:</p>
+                <a
+                    [routerLink]="['/', 'admin', 'sign_Up']"
+                    class="link"
+                >
+                    Załóż konto
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

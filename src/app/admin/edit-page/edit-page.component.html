@@ -1,0 +1,38 @@
+<app-alert></app-alert>
+<form
+    class="container"
+    [formGroup]="editPostForm"
+    (ngSubmit)="applyChanges()"
+>
+    <h2 class="title">Edycja posta</h2>
+    <label for="title">
+        <p>Tytuł post:</p>
+    </label>
+    <input
+        type="text"
+        id="title"
+        placeholder="Umieść tekst"
+        formControlName="title"
+    >
+    <div class="info-valid">
+        <p *ngIf="title.invalid">
+            <em>Wymagane pole.</em>
+        </p>
+    </div>
+    <p>Treść postu:</p>
+    <quill-editor formControlName="text"></quill-editor>
+    <div class="info-valid">
+        <p *ngIf="text.invalid">
+            <em>Wymagane pole.</em>
+        </p>
+    </div>
+    <div class="actions">
+        <button
+            class="btn btn--dark"
+            type="submit"
+            [disabled]="editPostForm.invalid || disbleSubmit"
+        >
+            Zmień
+        </button>
+    </div>
+</form>

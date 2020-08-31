@@ -1,1 +1,174 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
+
+$background: #dcdcdd;
+$backgroundLight: #ffffff;
+$backgroundDark: #000000;
+$outline: #c5c3c6;
+$outlineDark: #000000;
+$text: #46494c;
+$PrimaryText: #4c5c68;
+$PrimaryTextDark: #a9b7c1;
+$active: #1985a1;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    ::selection {
+        color: $background;
+        background-color: $active;
+    }
+}
+.btn {
+    position: relative;
+    overflow: hidden;
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: transparent;
+    color: $active;
+    text-transform: uppercase;
+    &:disabled {
+        background-color: #808080;
+        color: $text;
+        &::before,
+        &::after {
+            display: none;
+        }
+        &:active {
+            border: 1px solid $outline;
+            box-shadow: none;
+        }
+    }
+}
+
+.btn--light {
+    border: 1px solid $outline;
+    background-color: transparent;
+    &::after {
+        position: absolute;
+        display: block;
+        top: 100%;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: $background;
+        z-index: -1;
+        transition: 0.5s;
+    }
+    &:hover {
+        &::after {
+            top: 0;
+        }
+    }
+    &:active {
+        border: 1px solid $active;
+        box-shadow: 0 0 5px $active;
+    }
+}
+.btn--dark {
+    border: 1px solid $outline;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    &::before,
+    &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background-color: $backgroundLight;
+        z-index: -1;
+        transition: 0.8s;
+    }
+    &::before {
+        top: 100%;
+        left: 100%;
+    }
+    &::after {
+        bottom: 100%;
+        right: 100%;
+    }
+    &:hover {
+        &::before {
+            top: 0;
+            left: 0;
+        }
+        &::after {
+            bottom: 0;
+            right: 0;
+        }
+    }
+    &:active {
+        border: 1px solid $backgroundLight;
+        box-shadow: 0 0 10px $backgroundLight;
+    }
+}
+.link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: $active;
+    text-decoration: none;
+    cursor: pointer;
+    &::after,
+    &::before {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        width: 50%;
+        background-color: $active;
+        transition: 0.5s;
+    }
+    &::after {
+        left: -50%;
+    }
+    &::before {
+        right: -50%;
+    }
+    &:hover {
+        &::after {
+            left: 0;
+        }
+        &::before {
+            right: 0;
+        }
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $PrimaryText;
+}
+p {
+    color: $text;
+}
+// new post - ngx-quil style in /admin/create
+.ql-editor.ql-blank,
+.ql-editor {
+    min-height: 300px;
+}
+.ql-toolbar.ql-snow {
+    background-color: #dcdcdd;
+}
+.ql-container.ql-snow{
+    background-color: #fff;
+}
+.ql-editor p,
+.ql-editor.ql-blank::before {
+    color: #000000;
+}
+.ql-toolbar .ql-formats button:hover,
+.ql-toolbar .ql-formats .ql-picker-label:hover,
+.ql-formats .ql-size.ql-picker.ql-expanded .ql-picker-label .ql-picker-item:hover,
+.ql-toolbar .ql-formats .ql-picker-item.ql-selected,
+.ql-toolbar .ql-formats button.ql-active {
+    color: $active;
+}

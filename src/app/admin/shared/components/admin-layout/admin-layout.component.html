@@ -1,0 +1,38 @@
+<nav class="layout_nav">
+    <h1 class="app_title">Angular Blog</h1>
+    <ul>
+        <li>
+            <a
+                routerLink="/"
+                class="link"
+            >
+                Główna
+            </a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()">
+            <a
+                [routerLink]="['/admin', 'create']"
+                class="link"
+            >
+                Dodaj wpis
+            </a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()">
+            <a
+                [routerLink]="['/admin', 'dashboard']"
+                class="link"
+            >
+                Panel admina
+            </a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()">
+            <button
+                (click)="logout()"
+                class="btn btn--dark"
+            >
+                Wyloguj
+            </button>
+        </li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

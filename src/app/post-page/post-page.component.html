@@ -1,0 +1,23 @@
+<div
+    class="container"
+    *ngIf="post"
+>
+    <div class="post_header">
+        <h3 class="title">{{post.title}}</h3>
+        <a
+            [routerLink]="['/']"
+            class="link"
+        >
+            Homepage
+        </a>
+    </div>
+    <div class="post_author">
+        <p class="author">{{post.author}}</p>
+        <p>
+            {{post.date | date: 'dd.MM.yyyy HH:mm'}}
+        </p>
+    </div>
+    <div class="content">
+        <quill-view-html [content]="post.text"></quill-view-html>
+    </div>
+</div>

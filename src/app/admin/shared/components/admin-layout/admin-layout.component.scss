@@ -1,0 +1,35 @@
+$background: #000;
+$outline: #c5c3c6;
+$text: #46494c;
+$PrimaryText: #a9b7c1;
+$active: #1985a1;
+
+.layout_nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid $outline;
+    text-align: left;
+    background-color: $background;
+    z-index: 1;
+    .app_title {
+        min-width: 50%;
+        color: $PrimaryText;
+        text-align: center;
+    }
+    ul {
+        display: inline-block;
+        text-align: right;
+        list-style: none;
+        li {
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+    }
+}

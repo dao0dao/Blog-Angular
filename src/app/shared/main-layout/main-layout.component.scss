@@ -1,0 +1,32 @@
+$background: #dcdcdd;
+$outline: #c5c3c6;
+$text: #46494c;
+$PrimaryText: #4c5c68;
+$active: #1985a1;
+
+.layout_nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid $outline;
+    text-align: left;
+    background-color: $background;
+z-index: 1;
+    .app_title {
+        min-width: 50%;
+        text-align: center;
+    }
+    ul {
+        display: inline-block;
+        list-style: none;
+        li {
+            display: inline-block;
+            margin: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+    }
+}

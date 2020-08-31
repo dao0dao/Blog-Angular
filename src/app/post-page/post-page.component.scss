@@ -1,0 +1,30 @@
+$background: #dcdcdd;
+$outline: #c5c3c6;
+$text: #46494c;
+$PrimaryText: #4c5c68;
+$active: #1985a1;
+
+.container {
+    max-width: 1000px;
+    width: 90vw;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid $outline;
+    border-radius: 10px;
+    .post_header,
+    .post_author {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .author{
+        font-weight: 900;
+    }
+    .content {
+        text-align: justify;
+        p + p {
+            text-indent: 1rem;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+$background: #dcdcdd;
+$outline: #c5c3c6;
+$text: #46494c;
+$PrimaryText: #4c5c68;
+$active: #1985a1;
+
+.card {
+    max-width: 800px;
+    width: 90vw;
+    margin: 1rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid $outline;
+    border-radius: 10px;
+    .card_header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+    .date {
+        font-size: 0.8rem;
+    }
+    .author{
+        margin: 0.5rem 0;
+    }
+}

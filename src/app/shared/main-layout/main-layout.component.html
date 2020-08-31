@@ -1,0 +1,31 @@
+<nav class="layout_nav">
+    <h1 class="app_title">Angular Blog</h1>
+    <ul>
+        <li *ngIf="authService.isAuthenticated()">
+            <a
+                [routerLink]="['/admin/dashboard']"
+                class="link"
+            >
+                Panel admina
+            </a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()">
+            <a
+                (click)="authService.logout()"
+                class="link"
+            >
+                Wyloguj się
+            </a>
+        </li>
+        <li *ngIf="!authService.isAuthenticated()">
+            <a
+                [routerLink]="['/admin']"
+                class="link"
+            >
+                Zaloguj się
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>

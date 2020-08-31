@@ -1,0 +1,53 @@
+<app-alert></app-alert>
+<form
+    class="container"
+    [formGroup]="postForm"
+    (ngSubmit)="addPost()"
+>
+    <h2 class="title">Dodaj Post</h2>
+    <label for="title">
+        <p>Tytuł post:</p>
+    </label>
+    <input
+        type="text"
+        id="title"
+        formControlName="title"
+    >
+    <div class="info-valid">
+        <p *ngIf="title.invalid && title.touched">
+            <em>Wymagane pole.</em>
+        </p>
+    </div>
+    <p>Treść postu:</p>
+    <quill-editor
+        placeholder="Umieść tekst..."
+        formControlName="text"
+    ></quill-editor>
+    <div class="info-valid">
+        <p *ngIf="text.invalid && text.touched">
+            <em>Wymagane pole.</em>
+        </p>
+    </div>
+    <label for="author">
+        <p>Autor:</p>
+    </label>
+    <input
+        type="text"
+        id="author"
+        formControlName="author"
+    >
+    <div class="info-valid">
+        <p *ngIf="author.invalid && author.touched">
+            <em>Wymagane pole.</em>
+        </p>
+    </div>
+    <div class="actions">
+        <button
+            class="btn btn--dark"
+            type="submit"
+            [disabled]="postForm.invalid || disableSubmit"
+        >
+            Stwórz
+        </button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card_header">
+        <h2 class="title">{{post.title}}</h2>
+        <p class="date">{{post.date | date : 'dd.MM.yyy HH:mm'}}</p>
+    </div>
+    <p class="author">{{post.author}}</p>
+    <button
+        type="button"
+        class="btn btn--light"
+        [routerLink]="['/', post.id]"
+    >
+        Otwórz temat
+    </button>
+</div>

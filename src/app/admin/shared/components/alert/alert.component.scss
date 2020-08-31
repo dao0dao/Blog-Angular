@@ -1,0 +1,35 @@
+$background: #dcdcdd;
+$backgroundLight: #ffffff;
+$backgroundDark: #000000;
+$outline: #c5c3c6;
+$outlineDark: #000000;
+$text: #46494c;
+$textDark: #000000;
+$PrimaryText: #4c5c68;
+$PrimaryTextDark: #a9b7c1;
+$active: #1985a1;
+$succesColor: #56bd49;
+$warningColor: #ff7a7a;
+
+.content {
+    position: fixed;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    color: $text;
+    .text {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    .success {
+        background-color: $succesColor;
+    }
+    .warning {
+        color: $textDark;
+        background-color: #ff7a7a;
+    }
+    .info{
+        background-color: #8DC3E2;
+    }
+}

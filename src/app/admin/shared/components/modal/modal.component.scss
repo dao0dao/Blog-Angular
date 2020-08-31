@@ -1,0 +1,43 @@
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.541);
+    .modal--container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #ffffff, inset 0 0 5px #000000;
+        background-color: #fff;
+        h3,
+        p,
+        .actions {
+            margin: 0.8rem;
+        }
+        .actions {
+            .btn {
+                margin: auto 1rem;
+                padding: 0.6rem 1.5rem;
+                &:active {
+                    box-shadow: 0 0 5px;
+                }
+            }
+            .btn--yes:hover {
+                color: #8a0000;
+            }
+            .btn--no:hover {
+                color: #004d00;
+            }
+        }
+    }
+}

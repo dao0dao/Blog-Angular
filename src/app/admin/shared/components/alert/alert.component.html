@@ -1,0 +1,15 @@
+<div
+    *ngIf="text"
+    class="content"
+>
+    <div
+        class="text"
+        [ngClass]="{
+        'success' : type === 'success',
+        'warning': type === 'warning',
+        'info': type === 'info'
+    }"
+    >
+        <p>{{text}}</p>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <app-alert></app-alert>
+    <h2 class="title">Rejestracja użytkownika</h2>
+    <div
+        class="error"
+        *ngIf="authService.errorMessage$ |async as Message"
+    >
+        <p>{{Message}}</p>
+    </div>
+    <form
+        [formGroup]="userForm"
+        (ngSubmit)="signUp()"
+    >
+        <label for="email">
+            <p>Email:</p>
+        </label>
+        <input
+            id="email"
+            type="email"
+            formControlName="email"
+        >
+        <div class="info-valid">
+            <p *ngIf="email.errors?.required && email.touched">
+                <em>Wymagane pole.</em>
+            </p>
+            <p *ngIf="email.errors?.email && email.touched">
+                <em>Wprowadź prawidłowy email.</em>
+            </p>
+        </div>
+        <label for="password">
+            <p>Hasło:</p>
+        </label>
+        <input
+            type="password"
+            id="password"
+            formControlName="password"
+        >
+        <div class="info-valid">
+            <p>
+                <em *ngIf="password.errors?.required && password.touched">Wymagane pole.</em>
+            </p>
+            <p>
+                <em *ngIf="password.errors?.minlength">
+                    Hasło ma znaków {{password.errors?.minlength.actualLength}}. Musi składać się z conajmniej: {{password.errors?.minlength.requiredLength}} znaków.
+                </em>
+            </p>
+        </div>
+        <div class="actions">
+            <button
+                class="btn btn--dark"
+                type="submit"
+                [disabled]="userForm.invalid"
+            >
+                Zarejestruj się
+            </button>
+        </div>
+    </form>
+</div>
