@@ -1,0 +1,22 @@
+$outline: #c5c3c6;
+
+.container {
+    max-width: 1000px;
+    width: 90vw;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid $outline;
+    border-radius: 10px;
+    img {
+        display: block;
+        margin: 2rem auto;
+        max-width: 90%;
+        border-radius: 10px;
+    }
+    .actions {
+        text-align: right;
+        .link {
+            text-transform: uppercase;
+        }
+    }
+}

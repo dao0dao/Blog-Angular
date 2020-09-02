@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/admin/shared/services/auth.service';
 })
 export class MainLayoutComponent implements OnInit {
 
+  activeList : boolean = false
+
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {

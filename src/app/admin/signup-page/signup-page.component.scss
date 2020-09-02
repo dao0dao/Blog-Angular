@@ -22,7 +22,7 @@ $validLight: #b2f0a1;
     }
     .error {
         margin: 2rem auto;
-        p{
+        p {
             color: $warningDark;
         }
     }
@@ -59,6 +59,17 @@ $validLight: #b2f0a1;
     }
     .actions {
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        padding: 0 0.5rem;
         z-index: 1;
+        .login {
+            text-align: right;
+            .link {
+                margin-top: 0.5rem;
+            }
+        }
     }
 }

@@ -1,38 +1,63 @@
 <nav class="layout_nav">
-    <h1 class="app_title">Angular Blog</h1>
-    <ul>
-        <li>
-            <a
-                routerLink="/"
-                class="link"
-            >
-                Główna
-            </a>
-        </li>
-        <li *ngIf="authService.isAuthenticated()">
-            <a
-                [routerLink]="['/admin', 'create']"
-                class="link"
-            >
-                Dodaj wpis
-            </a>
-        </li>
-        <li *ngIf="authService.isAuthenticated()">
-            <a
-                [routerLink]="['/admin', 'dashboard']"
-                class="link"
-            >
-                Panel admina
-            </a>
-        </li>
-        <li *ngIf="authService.isAuthenticated()">
-            <button
-                (click)="logout()"
-                class="btn btn--dark"
-            >
-                Wyloguj
-            </button>
-        </li>
-    </ul>
+    <div class="app_title">
+        <h1>Angular Blog</h1>
+    </div>
+    <div class="nav">
+        <div
+            class="bars"
+            (click)="activeList = !activeList"
+        >
+            <div
+                class="bar bar--top"
+                [ngClass]="{'bar--active':activeList}"
+            ></div>
+            <div
+                class="bar bar--mid"
+                [ngClass]="{'bar--active':activeList}"
+            ></div>
+            <div
+                class="bar bar--bot"
+                [ngClass]="{'bar--active':activeList}"
+            ></div>
+        </div>
+        <ul
+            class="list"
+            [ngClass]="{'list--active' : activeList}"
+            (click)="activeList = false"
+        >
+            <li>
+                <a
+                    routerLink="/"
+                    class="link"
+                >
+                    Główna
+                </a>
+            </li>
+            <li *ngIf="authService.isAuthenticated()">
+                <a
+                    [routerLink]="['/admin', 'create']"
+                    class="link"
+                >
+                    Dodaj wpis
+                </a>
+            </li>
+            <li *ngIf="authService.isAuthenticated()">
+                <a
+                    [routerLink]="['/admin', 'dashboard']"
+                    class="link"
+                >
+                    Panel admina
+                </a>
+            </li>
+            <li *ngIf="authService.isAuthenticated()">
+                <button
+                    (click)="logout()"
+                    class="btn btn--dark"
+                >
+                    Wyloguj
+                </button>
+            </li>
+        </ul>
+    </div>
 </nav>
 <router-outlet></router-outlet>

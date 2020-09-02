@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'admin', loadChildren: './admin/admin.module#AdminModule'
-  }
+  },
+  { path: 'error', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/error' }
 ];
 
 @NgModule({

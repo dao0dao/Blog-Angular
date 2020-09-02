@@ -7,26 +7,104 @@ $active: #1985a1;
 .layout_nav {
     position: sticky;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     top: 0;
     margin-bottom: 1rem;
     padding: 1rem;
     border-bottom: 1px solid $outline;
     text-align: left;
     background-color: $background;
-z-index: 1;
+    z-index: 2;
     .app_title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         min-width: 50%;
+        color: $PrimaryText;
         text-align: center;
+    }
+    .nav {
+        position: relative;
+        height: 100%;
+        z-index: 2;
     }
     ul {
         display: inline-block;
+        text-align: right;
         list-style: none;
         li {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin: 0.5rem;
             font-size: 0.8rem;
             text-transform: uppercase;
         }
+    }
+}
+@media (min-width: 992px) {
+    .layout_nav .nav .bars {
+        display: none;
+    }
+}
+@media (max-width: 991px) {
+    .layout_nav {
+        .app_title {
+            justify-content: right;
+        }
+
+        .bars {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            .bar {
+                height: 0.25rem;
+                margin: 0.2rem 0;
+                background-color: $active;
+                transition: 0.5s ease-in-out;
+            }
+            .bar--top {
+                width: 3rem;
+            }
+            .bar--mid {
+                width: 2rem;
+            }
+            .bar--bot {
+                width: 1rem;
+            }
+            .bar--active {
+                width: 2rem;
+            }
+        }
+        .list {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            top: -100%;
+            left: 0;
+            background-color: $background;
+            z-index: -1;
+            transition: 0.8s ease-in top;
+            li {
+                margin: 2rem auto;
+                opacity: 0;
+                transition: 1s 0.8s linear;
+            }
+        }
+        .list--active {
+            top: 0;
+            li {
+                opacity: 1;
+            }
+        }
+    }
+}
+@media(min-width: 1200px){
+    .layout_nav{
+        justify-content: center;
     }
 }

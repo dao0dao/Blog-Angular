@@ -10,6 +10,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AdminLayoutComponent implements OnInit {
 
+  activeList: boolean = false
+
   logout() {
     this.authService.logout()
     this.router.navigate(['/'])

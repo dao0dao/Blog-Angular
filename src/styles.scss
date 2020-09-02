@@ -70,8 +70,6 @@ $active: #1985a1;
 }
 .btn--dark {
     border: 1px solid $outline;
-    background-color: rgb(0, 0, 0);
-    z-index: 2;
     &::before,
     &::after {
         position: absolute;

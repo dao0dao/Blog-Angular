@@ -13,6 +13,7 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/post/post.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/authInterceptor';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 registerLocaleData(plLocale, 'pl')
 
@@ -28,7 +29,8 @@ const INTERCEPTOR_PROVIDERS: Provider = {
     MainLayoutComponent,
     HomePageComponent,
     PostPageComponent,
-    PostComponent
+    PostComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
