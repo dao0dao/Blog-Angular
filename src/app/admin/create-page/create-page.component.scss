@@ -11,16 +11,9 @@ $closeShadow: #6b9080;
 $farShadow: #1985a1;
 
 .container {
-    position: relative;
-    max-width: 800px;
-    width: 90vw;
-    margin: 5rem auto;
-    padding: 2rem;
+    position: relative; 
     border: 1px solid $outline;
-    border-radius: 10px;
     background-color: $backgroundDark;
-    box-shadow: 1px 1px 0px $closeShadow, -1px 1px 2px $closeShadow, 1px -1px 2px $closeShadow,
-        5px 5px 6px $farShadow, inset -1px -1px 5px #000000, inset 1px 1px 2px $outline;
     z-index: 1;
     .title {
         color: $PrimaryTextDark;

@@ -1,7 +1,7 @@
 $background: #dcdcdd;
-$backgroundDark: #000000;
+$backgroundDark: #222222;
 $outline: #c5c3c6;
-$outlineDark: #000000;
+$outlineDark: #222222;
 $text: #46494c;
 $textLight: #b2b5b8;
 $PrimaryTextDark: #a9b7c1;
@@ -10,15 +10,7 @@ $warningDark: #ef9f9f;
 $closeShadow: #6b9080;
 $farShadow: #1985a1;
 
-.container {
-    max-width: 800px;
-    width: 90vw;
-    margin: 5rem auto;
-    padding: 1rem;
-    border: 1px solid $outline;
-    border-radius: 10px;
-    box-shadow: 1px 1px 0px $closeShadow, -1px 1px 2px $closeShadow, 1px -1px 2px $closeShadow,
-        5px 5px 6px $farShadow, inset -1px -1px 5px #000000, inset 1px 1px 2px $outline;
+.container {  
     background-color: $backgroundDark;
     .title {
         color: $PrimaryTextDark;

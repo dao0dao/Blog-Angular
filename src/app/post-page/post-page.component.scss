@@ -3,14 +3,8 @@ $closeShadow: #6b9080;
 $farShadow: #1985a1;
 
 .container {
-    max-width: 1000px;
-    width: 90vw;
+    max-width: 1000px; 
     margin: 3rem auto 1rem;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 1px 1px 0px $closeShadow, -1px 1px 2px $closeShadow, 1px -1px 2px $closeShadow, 5px 5px 6px $farShadow,
-        inset -1px -1px 5px #000000, inset 1px 1px 2px $outline;
-    background-color: #fff;
     .post_header,
     .post_author {
         display: flex;

@@ -10,15 +10,21 @@ import { Subscription } from 'rxjs';
 })
 export class HomePageComponent implements OnInit, OnDestroy {
 
-  posts: Post[]
+  posts: Post[] = []
   postSub: Subscription
+  emptyBase: boolean = false
 
   constructor(private postService: PostService) { }
 
   ngOnInit() {
     this.postService.fetchPosts().subscribe(
       (posts) => {
-        this.posts = posts
+        if (posts) {
+          this.emptyBase = false
+          this.posts = posts
+        } else {
+          this.emptyBase = true
+        }
       }
     )
   }

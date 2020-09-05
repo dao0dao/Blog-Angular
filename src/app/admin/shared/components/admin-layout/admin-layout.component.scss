@@ -1,12 +1,21 @@
-$background: #000;
-$outline: #c5c3c6;
-$text: #46494c;
+$backgroundDark: #222222;
 $PrimaryTextLight: #a9b7c1;
-$active: #1985a1;
 
 .layout_nav {
-    background-color: $background;
+    background-color: $backgroundDark;
     .app_title {
         color: $PrimaryTextLight;
+    }
+}
+@media (min-width: 992px) {
+    .layout_nav .nav .bars {
+        display: none;
+    }
+}
+@media (max-width: 991px) {
+    .layout_nav {
+        .list {
+            background-color: $backgroundDark;
+        }
     }
 }

@@ -1,12 +1,10 @@
 $outline: #c5c3c6;
+$closeShadow: #6b9080;
+$farShadow: #1985a1;
 
 .container {
     max-width: 1000px;
-    width: 90vw;
-    margin: 1rem auto;
-    padding: 1rem;
-    border: 1px solid $outline;
-    border-radius: 10px;
+    margin: 3rem auto;  
     img {
         display: block;
         margin: 2rem auto;

@@ -4,13 +4,15 @@
 
 $background: #dcdcdd;
 $backgroundLight: #ffffff;
-$backgroundDark: #000000;
+$backgroundDark: #222222;
 $outline: #c5c3c6;
-$outlineDark: #000000;
+$outlineDark: #222222;
 $text: #46494c;
 $PrimaryText: #4c5c68;
 $PrimaryTextLight: #a9b7c1;
 $active: #1985a1;
+$closeShadow: #6b9080;
+$farShadow: #1985a1;
 
 * {
     margin: 0;
@@ -24,9 +26,9 @@ $active: #1985a1;
 }
 body {
     min-height: 100vh;
-    background: #a4c3b2;
+    background: #9ad5ec;
     // background: linear-gradient(-315deg, rgba(254, 208, 133, 1) 0%, rgba(253, 176, 53, 1) 100%);
-    background: radial-gradient(circle, #a4c3b2 90%, #6b9080 100%);
+    // background: radial-gradient(circle, #a4c3b2 90%, #6b9080 100%);
 }
 
 //Global buttons and links
@@ -275,9 +277,78 @@ p {
         }
     }
 }
-@media(min-width: 1200px){
-    .layout_nav{
+@media (min-width: 1200px) {
+    .layout_nav {
         justify-content: center;
+    }
+}
+
+// Global container
+.container {
+    max-width: 800px;
+    width: 90vw;
+    margin: 5rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0px $closeShadow, -1px 1px 2px $closeShadow, 1px -1px 2px $closeShadow, 5px 5px 6px $farShadow,
+        inset -1px -1px 5px #000000, inset 1px 1px 2px $outline;
+    background-color: $backgroundLight;
+}
+
+//Loader
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.emptyBase {
+    text-align: center;
+}
+.loading {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    .animation {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        transform: rotate(0deg);
+        animation: loading 5s linear infinite reverse;
+    }
+    .loader {
+        position: absolute;
+        width: 50px;
+        height: 5px;
+        top: 0;
+        left: 50%;
+        border-radius: 5px;
+        background-color: $PrimaryText;
+        &::before {
+            position: absolute;
+            display: block;
+            content: "";
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 50px;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            background-color: $PrimaryText;
+        }
+    }
+    .loader--1 {
+        animation: loading 1s linear infinite;
+    }
+    .loader--2 {
+        animation: loading 1.3s linear infinite;
     }
 }
 
