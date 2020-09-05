@@ -1,5 +1,6 @@
 @import "../node_modules/quill/dist/quill.core.css";
 @import "../node_modules/quill/dist/quill.snow.css";
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,900&display=swap");
 
 $background: #dcdcdd;
 $backgroundLight: #ffffff;
@@ -8,18 +9,27 @@ $outline: #c5c3c6;
 $outlineDark: #000000;
 $text: #46494c;
 $PrimaryText: #4c5c68;
-$PrimaryTextDark: #a9b7c1;
+$PrimaryTextLight: #a9b7c1;
 $active: #1985a1;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Alegreya Sans", sans-serif;
     ::selection {
         color: $background;
         background-color: $active;
     }
 }
+body {
+    min-height: 100vh;
+    background: #a4c3b2;
+    // background: linear-gradient(-315deg, rgba(254, 208, 133, 1) 0%, rgba(253, 176, 53, 1) 100%);
+    background: radial-gradient(circle, #a4c3b2 90%, #6b9080 100%);
+}
+
+//Global buttons and links
 .btn {
     position: relative;
     overflow: hidden;
@@ -29,6 +39,8 @@ $active: #1985a1;
     background-color: transparent;
     color: $active;
     text-transform: uppercase;
+    z-index: 1;
+    cursor: pointer;
     &:disabled {
         background-color: #808080;
         color: $text;
@@ -56,7 +68,7 @@ $active: #1985a1;
         height: 100%;
         background-color: $background;
         z-index: -1;
-        transition: 0.5s;
+        transition: 0.25s;
     }
     &:hover {
         &::after {
@@ -79,7 +91,7 @@ $active: #1985a1;
         height: 100%;
         background-color: $backgroundLight;
         z-index: -1;
-        transition: 0.8s;
+        transition: 0.3s;
     }
     &::before {
         top: 100%;
@@ -137,6 +149,18 @@ $active: #1985a1;
         }
     }
 }
+.link--active {
+    a {
+        &::after {
+            left: 0;
+        }
+        &::before {
+            right: 0;
+        }
+    }
+}
+
+// Global fonts
 h1,
 h2,
 h3,
@@ -146,8 +170,117 @@ h6 {
     color: $PrimaryText;
 }
 p {
+    font-size: 1rem;
     color: $text;
 }
+
+// Global navigation
+.layout_nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid $outline;
+    background-color: $background;
+    z-index: 2;
+    .app_title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 50%;
+        color: $PrimaryText;
+        text-align: center;
+    }
+    .nav {
+        position: relative;
+        height: 100%;
+        z-index: 2;
+    }
+    ul {
+        display: inline-block;
+        text-align: right;
+        list-style: none;
+        li {
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+    }
+}
+@media (min-width: 992px) {
+    .layout_nav .nav .bars {
+        display: none;
+    }
+}
+@media (max-width: 991px) {
+    .layout_nav {
+        .app_title {
+            justify-content: right;
+        }
+
+        .bars {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            cursor: pointer;
+            .bar {
+                height: 0.25rem;
+                margin: 0.2rem 0;
+                background-color: $active;
+                transition: 0.5s ease-in-out;
+            }
+            .bar--top {
+                width: 3rem;
+            }
+            .bar--mid {
+                width: 2rem;
+            }
+            .bar--bot {
+                width: 1rem;
+            }
+            .bar--active {
+                width: 2rem;
+            }
+        }
+        .list {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            top: -100%;
+            left: 0;
+            background-color: $background;
+            z-index: -1;
+            transition: 0.8s ease-in top;
+            li {
+                margin: 2rem auto;
+                opacity: 0;
+                transition: 1s 0.8s linear;
+            }
+        }
+        .list--active {
+            top: 0;
+            li {
+                opacity: 1;
+            }
+        }
+    }
+}
+@media(min-width: 1200px){
+    .layout_nav{
+        justify-content: center;
+    }
+}
+
 // new post - ngx-quil style in /admin/create
 .ql-editor.ql-blank,
 .ql-editor {
@@ -156,7 +289,7 @@ p {
 .ql-toolbar.ql-snow {
     background-color: #dcdcdd;
 }
-.ql-container.ql-snow{
+.ql-container.ql-snow {
     background-color: #fff;
 }
 .ql-editor p,

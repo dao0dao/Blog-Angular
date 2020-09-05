@@ -25,7 +25,8 @@
             [ngClass]="{'list--active' : activeList}"
             (click)="activeList = false"
         >
-            <li>
+            <li routerLinkActive="link--active"
+            [routerLinkActiveOptions]="{exact: true}">
                 <a
                     routerLink="/"
                     class="link"
@@ -33,7 +34,10 @@
                     Główna
                 </a>
             </li>
-            <li *ngIf="authService.isAuthenticated()">
+            <li
+                *ngIf="authService.isAuthenticated()"
+                routerLinkActive="link--active"
+            >
                 <a
                     [routerLink]="['/admin', 'create']"
                     class="link"
@@ -41,12 +45,38 @@
                     Dodaj wpis
                 </a>
             </li>
-            <li *ngIf="authService.isAuthenticated()">
+            <li
+                *ngIf="authService.isAuthenticated()"
+                routerLinkActive="link--active"
+            >
                 <a
                     [routerLink]="['/admin', 'dashboard']"
                     class="link"
                 >
                     Panel admina
+                </a>
+            </li>
+            <li
+                *ngIf="!authService.isAuthenticated()"
+                routerLinkActive="link--active"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <a
+                    [routerLink]="['/admin', 'login']"
+                    class="link"
+                >
+                    Zaloguj się
+                </a>
+            </li>
+            <li
+                *ngIf="!authService.isAuthenticated()"
+                routerLinkActive="link--active"
+            >
+                <a
+                    [routerLink]="['/admin', 'sign_Up']"
+                    class="link"
+                >
+                    Zarejestruj się
                 </a>
             </li>
             <li *ngIf="authService.isAuthenticated()">

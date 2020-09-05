@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Post } from './interfaces'
+import { Post, FbNewId } from './interfaces'
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { AuthService } from '../admin/shared/services/auth.service'
@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators'
 
 export class PostService {
 
-    create(post: Post): Observable<Post> {
-        return this.http.post<Post>(`${environment.firebaseDatabaseURL}/posts.json`, post)
+    create(post: Post): Observable<FbNewId> {
+        return this.http.post<FbNewId>(`${environment.firebaseDatabaseURL}/posts.json`, post)
     }
 
     fetchPosts(): Observable<Post[]> {

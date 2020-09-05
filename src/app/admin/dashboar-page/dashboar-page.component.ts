@@ -45,14 +45,12 @@ export class DashboarPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.postSubscription = this.postService.fetchPosts().subscribe(
       (res) => {
-        setTimeout(() => {
           if (res) {
             this.emptyBase = false
             this.posts = res
           } else {
             this.emptyBase = true
           }
-        }, 2000)
       }
     )
   }

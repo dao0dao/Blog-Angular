@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Post } from 'src/app/shared/interfaces';
+import { Post, FbNewId } from 'src/app/shared/interfaces';
 import { PostService } from 'src/app/shared/post.service';
 import { AlertService } from '../shared/services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-page',
@@ -25,10 +26,13 @@ export class CreatePageComponent implements OnInit {
       date: new Date()
     }
     this.postService.create(this.newPost).subscribe(
-      () => {
+      (id: FbNewId) => {
         this.alertService.success('Utworzono post')
         this.postForm.reset();
-        this.disableSubmit = false
+        this.disableSubmit = false;
+        setTimeout(() => {
+          this.router.navigate(['/post', id.name])
+        }, 2000)
       },
       () => {
         this.disableSubmit = false
@@ -46,7 +50,7 @@ export class CreatePageComponent implements OnInit {
     return this.postForm.get('author')
   }
 
-  constructor(private fb: FormBuilder, private postService: PostService, private alertService: AlertService) { }
+  constructor(private fb: FormBuilder, private postService: PostService, private alertService: AlertService, private router: Router) { }
 
   ngOnInit() {
     this.postForm = this.fb.group({

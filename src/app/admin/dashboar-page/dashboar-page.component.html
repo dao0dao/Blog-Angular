@@ -1,14 +1,17 @@
 <app-alert></app-alert>
 <app-modal></app-modal>
+<h3 class="title">Lista postów</h3>
 <div
     class="container"
     *ngIf="posts.length; else loading"
 >
+<div class="search">
     <input
-        type="text"
-        placeholder="Wyszukaj post po tytule i autorze..."
-        [(ngModel)]='search'
+    type="text"
+    placeholder="Wyszukaj post po tytule i autorze..."
+    [(ngModel)]='search'
     >
+</div>
     <table>
         <thead>
             <tr>
