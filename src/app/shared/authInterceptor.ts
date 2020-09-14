@@ -3,7 +3,6 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs'
 import { Router } from '@angular/router'
 import { AuthService } from '../admin/shared/services/auth.service'
-import { environment } from 'src/environments/environment'
 import { catchError } from 'rxjs/operators'
 
 @Injectable({ providedIn: 'root' })
